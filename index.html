@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhims Co. — Brand Strategy &amp; Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────────────────────── */
+:root {
+  --cream:  #F7F4EF;
+  --warm:   #EDE8DF;
+  --stone:  #C8BFB0;
+  --ink:    #1A1814;
+  --i70:    rgba(26,24,20,0.7);
+  --i45:    rgba(26,24,20,0.45);
+  --i18:    rgba(26,24,20,0.18);
+  --i08:    rgba(26,24,20,0.08);
+  --gold:   #B89A5E;
+  --rule:   1px solid var(--i18);
+  --fast:   0.18s cubic-bezier(0.4,0,0.2,1);
+  --smooth: 0.55s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ── RESET ───────────────────────────────────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* ── TYPOGRAPHY UTILITIES ───────────────────────────────────────────────────── */
+.serif{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400}
+.label{font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--i45)}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--i45)}
+
+/* ── LAYOUT ──────────────────────────────────────────────────────────────────── */
+.wrap{max-width:1120px;margin:0 auto;padding:0 48px}
+section{position:relative}
+
+/* ── ANIMATIONS ──────────────────────────────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+.ao{opacity:0;transform:translateY(28px);transition:opacity var(--smooth),transform var(--smooth)}
+.ao.vis{opacity:1;transform:none}
+.ao.d1{transition-delay:0.08s}.ao.d2{transition-delay:0.16s}.ao.d3{transition-delay:0.24s}
+.ao.d4{transition-delay:0.32s}.ao.d5{transition-delay:0.40s}.ao.d6{transition-delay:0.48s}
+
+/* ── PAGE SYSTEM ─────────────────────────────────────────────────────────────── */
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* ── NAV ─────────────────────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:64px;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(247,244,239,0.88);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:var(--rule);
+  transition:background var(--fast);
+}
+.nav-logo{
+  font-size:16px;font-weight:600;letter-spacing:-0.03em;color:var(--ink);
+  display:flex;align-items:center;gap:3px;cursor:pointer
+}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-link{
+  font-size:13px;font-weight:400;letter-spacing:0.01em;color:var(--i70);
+  padding:8px 14px;border-radius:6px;transition:all var(--fast);cursor:pointer;
+  background:none;
+}
+.nav-link:hover,.nav-link.active{color:var(--ink);background:var(--i08)}
+.nav-cta{
+  font-size:13px;font-weight:500;letter-spacing:0.02em;
+  color:var(--cream);background:var(--ink);
+  padding:9px 22px;border-radius:6px;
+  transition:opacity var(--fast);cursor:pointer;
+  margin-left:8px;
+}
+.nav-cta:hover{opacity:0.78}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.hamburger span{width:22px;height:1.5px;background:var(--ink);display:block;transition:var(--fast)}
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:190;
+  background:var(--cream);padding:80px 32px 40px;
+  flex-direction:column;gap:4px;
+}
+.mobile-menu.open{display:flex}
+.mobile-nav-link{
+  font-size:28px;font-weight:500;letter-spacing:-0.02em;
+  padding:14px 0;border-bottom:var(--rule);color:var(--ink);cursor:pointer;
+  transition:color var(--fast);
+}
+.mobile-nav-link:hover{color:var(--gold)}
+
+/* ── HERO ────────────────────────────────────────────────────────────────────── */
+#hero{
+  padding-top:64px;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  border-bottom:var(--rule);
+}
+.hero-inner{padding:80px 48px 72px;max-width:1120px;margin:0 auto;width:100%}
+.hero-tag{animation:fadeUp 0.7s var(--smooth) 0.1s both}
+.hero-headline{
+  font-size:clamp(52px,6.5vw,96px);font-weight:600;
+  letter-spacing:-0.035em;line-height:1.02;
+  max-width:800px;margin:32px 0 36px;
+  animation:fadeUp 0.7s var(--smooth) 0.22s both;
+}
+.hero-sub{
+  max-width:460px;font-size:17px;font-weight:300;line-height:1.75;
+  color:var(--i70);margin-bottom:48px;
+  animation:fadeUp 0.7s var(--smooth) 0.34s both;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:16px;
+  animation:fadeUp 0.7s var(--smooth) 0.46s both;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:500;letter-spacing:0.02em;
+  color:var(--cream);background:var(--ink);
+  padding:14px 28px;border-radius:8px;
+  transition:opacity var(--fast);cursor:pointer;
+}
+.btn-primary:hover{opacity:0.78}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:400;letter-spacing:0.01em;
+  color:var(--i70);padding:14px 20px;border-radius:8px;
+  border:var(--rule);transition:all var(--fast);cursor:pointer;
+}
+.btn-ghost:hover{color:var(--ink);border-color:var(--i45);background:var(--i08)}
+.hero-scroll{
+  padding:24px 48px;max-width:1120px;margin:0 auto;width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:var(--rule);animation:fadeIn 1s var(--smooth) 0.7s both;
+}
+.hero-scroll-items{display:flex;align-items:center;gap:40px}
+.hero-scroll-item{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--i45)}
+
+/* ── MARQUEE ─────────────────────────────────────────────────────────────────── */
+.marquee-section{
+  overflow:hidden;background:var(--ink);
+  padding:16px 0;border-bottom:var(--rule);
+}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-track{display:flex;width:max-content;animation:mq 32s linear infinite}
+.marquee-item{
+  display:flex;align-items:center;gap:24px;padding:0 24px;
+  font-size:11px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(247,244,239,0.4);white-space:nowrap;
+}
+.mdot{width:3px;height:3px;border-radius:50%;background:rgba(247,244,239,0.2);flex-shrink:0}
+
+/* ── SECTION SPACING ─────────────────────────────────────────────────────────── */
+.section-lg{padding:120px 0}
+.section-md{padding:80px 0}
+.section-sm{padding:60px 0}
+
+/* ── SECTION HEADER ──────────────────────────────────────────────────────────── */
+.section-header{margin-bottom:72px}
+.section-header.center{text-align:center}
+.section-title{font-size:clamp(36px,4vw,54px);font-weight:600;letter-spacing:-0.03em;line-height:1.08}
+.section-sub{font-size:16px;font-weight:300;line-height:1.75;color:var(--i70);max-width:520px;margin-top:18px}
+.section-header.center .section-sub{margin:18px auto 0}
+
+/* ── VALUE PROPS ─────────────────────────────────────────────────────────────── */
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--i18);border:var(--rule);border-radius:12px;overflow:hidden}
+.value-card{background:var(--cream);padding:40px 36px;transition:background var(--fast)}
+.value-card:hover{background:var(--warm)}
+.value-num{font-size:11px;font-weight:400;letter-spacing:0.14em;color:var(--i45);margin-bottom:20px;display:block}
+.value-title{font-size:20px;font-weight:600;letter-spacing:-0.02em;margin-bottom:12px;line-height:1.2}
+.value-body{font-size:14px;font-weight:300;line-height:1.8;color:var(--i70)}
+
+/* ── SERVICES ────────────────────────────────────────────────────────────────── */
+.services-list{border-top:var(--rule)}
+.service-row{
+  display:grid;grid-template-columns:64px 1fr 1.2fr auto;
+  gap:40px;align-items:start;
+  padding:40px 0;border-bottom:var(--rule);
+  transition:background var(--fast),padding var(--fast),margin var(--fast);
+  cursor:default;
+}
+.service-row:hover{background:var(--i08);padding:40px 24px;margin:0 -24px}
+.service-row-num{font-size:11px;font-weight:400;letter-spacing:0.1em;color:var(--i45);padding-top:4px}
+.service-row-name{font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.2}
+.service-row-desc{font-size:14px;font-weight:300;line-height:1.8;color:var(--i70)}
+.service-row-tags{display:flex;flex-direction:column;align-items:flex-end;gap:5px;padding-top:4px}
+.service-tag{font-size:10px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--i45)}
+
+/* ── PROCESS ─────────────────────────────────────────────────────────────────── */
+.process-section{background:var(--ink)}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(247,244,239,0.08);border:1px solid rgba(247,244,239,0.08)}
+.ps{background:var(--ink);padding:40px 28px;transition:background var(--fast)}
+.ps:hover{background:rgba(247,244,239,0.04)}
+.ps-num{font-size:11px;font-weight:400;letter-spacing:0.14em;color:rgba(247,244,239,0.22);margin-bottom:28px;display:block}
+.ps-title{font-size:16px;font-weight:600;letter-spacing:-0.015em;color:var(--cream);margin-bottom:12px;line-height:1.25}
+.ps-body{font-size:13px;font-weight:300;line-height:1.75;color:rgba(247,244,239,0.42)}
+
+/* ── WHY US ──────────────────────────────────────────────────────────────────── */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--i18);border:var(--rule);border-radius:12px;overflow:hidden}
+.why-card{background:var(--warm);padding:48px 44px;transition:background var(--fast)}
+.why-card:hover{background:var(--cream)}
+.why-icon{width:36px;height:36px;margin-bottom:20px;display:flex;align-items:center;justify-content:center}
+.why-icon svg{width:20px;height:20px;stroke:var(--i45);stroke-width:1.5;fill:none}
+.why-title{font-size:18px;font-weight:600;letter-spacing:-0.02em;margin-bottom:12px;line-height:1.2}
+.why-body{font-size:14px;font-weight:300;line-height:1.8;color:var(--i70)}
+
+/* ── ENGAGEMENT ──────────────────────────────────────────────────────────────── */
+.engagement-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--i18);border:var(--rule);border-radius:12px;overflow:hidden}
+.eg-card{background:var(--cream);padding:36px 28px;transition:background var(--fast)}
+.eg-card:hover{background:var(--warm)}
+.eg-name{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:28px;font-weight:400;color:var(--ink);margin-bottom:16px;display:block;line-height:1.1}
+.eg-desc{font-size:13px;font-weight:300;line-height:1.75;color:var(--i70)}
+
+/* ── TESTIMONIALS ────────────────────────────────────────────────────────────── */
+.testimonials-section{background:var(--warm)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:var(--cream);border:var(--rule);border-radius:12px;padding:36px 32px}
+.testi-quote{font-size:15px;font-weight:300;line-height:1.8;color:var(--ink);margin-bottom:28px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--i18);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--i70);flex-shrink:0}
+.testi-name{font-size:13px;font-weight:500;color:var(--ink)}
+.testi-role{font-size:12px;font-weight:300;color:var(--i45);margin-top:2px}
+
+/* ── CASE STUDIES ────────────────────────────────────────────────────────────── */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case-card{
+  background:var(--warm);border:var(--rule);border-radius:12px;overflow:hidden;
+  transition:transform var(--fast),border-color var(--fast);cursor:pointer;
+}
+.case-card:hover{transform:translateY(-4px);border-color:var(--stone)}
+.case-img{height:200px;background:var(--i08);display:flex;align-items:center;justify-content:center;border-bottom:var(--rule);overflow:hidden}
+.case-img-inner{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--i45)}
+.case-body{padding:28px}
+.case-industry{font-size:10px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--i45);margin-bottom:10px;display:block}
+.case-title{font-size:17px;font-weight:600;letter-spacing:-0.02em;margin-bottom:10px;line-height:1.3}
+.case-desc{font-size:13px;font-weight:300;line-height:1.7;color:var(--i70)}
+.case-result{margin-top:20px;padding-top:20px;border-top:var(--rule);display:flex;gap:20px}
+.case-metric{font-size:11px;font-weight:400;letter-spacing:0.08em;color:var(--i45)}
+.case-metric strong{display:block;font-size:18px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);margin-bottom:2px}
+
+/* ── TAGLINES ────────────────────────────────────────────────────────────────── */
+.tagline-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:24px 0;border-bottom:var(--rule);gap:32px;
+  transition:padding-left var(--fast);cursor:default;
+}
+.tagline-row:hover{padding-left:12px}
+.tagline-text{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(18px,2.2vw,26px);font-weight:400;letter-spacing:-0.01em;flex:1}
+.tagline-note{font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--i45);white-space:nowrap;flex-shrink:0}
+
+/* ── CTA BAND ────────────────────────────────────────────────────────────────── */
+.cta-band{background:var(--ink);padding:120px 0;text-align:center}
+.cta-headline{font-size:clamp(42px,5.5vw,76px);font-weight:600;letter-spacing:-0.03em;line-height:1.05;color:var(--cream);max-width:700px;margin:0 auto 32px}
+.cta-sub{font-size:16px;font-weight:300;color:rgba(247,244,239,0.52);max-width:380px;margin:0 auto 48px;line-height:1.75}
+.cta-actions{display:flex;align-items:center;justify-content:center;gap:16px}
+.btn-light{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:500;letter-spacing:0.02em;
+  color:var(--ink);background:var(--cream);
+  padding:14px 28px;border-radius:8px;
+  transition:opacity var(--fast);cursor:pointer;
+}
+.btn-light:hover{opacity:0.82}
+.btn-outline-light{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:400;
+  color:rgba(247,244,239,0.6);
+  padding:14px 20px;border-radius:8px;
+  border:1px solid rgba(247,244,239,0.2);
+  transition:all var(--fast);cursor:pointer;
+}
+.btn-outline-light:hover{color:var(--cream);border-color:rgba(247,244,239,0.45)}
+
+/* ── ABOUT PAGE ──────────────────────────────────────────────────────────────── */
+.about-hero{padding:160px 0 80px;border-bottom:var(--rule)}
+.about-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-headline{font-size:clamp(40px,4.5vw,60px);font-weight:600;letter-spacing:-0.03em;line-height:1.08}
+.about-body{font-size:16px;font-weight:300;line-height:1.85;color:var(--i70)}
+.about-body p+p{margin-top:20px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding:60px 0;border-bottom:var(--rule)}
+.stat-big{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:52px;font-weight:400;letter-spacing:-0.02em;display:block;margin-bottom:8px}
+.stat-desc-text{font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--i45);line-height:1.5}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--i18);border:var(--rule);border-radius:12px;overflow:hidden;margin-top:72px}
+.val-card{background:var(--cream);padding:40px 32px;transition:background var(--fast)}
+.val-card:hover{background:var(--warm)}
+.val-title{font-size:16px;font-weight:600;letter-spacing:-0.015em;margin-bottom:12px}
+.val-body{font-size:14px;font-weight:300;line-height:1.8;color:var(--i70)}
+
+/* ── SERVICES PAGE ───────────────────────────────────────────────────────────── */
+.services-hero{padding:160px 0 80px;border-bottom:var(--rule)}
+.services-detail{border-top:var(--rule)}
+.service-detail-row{
+  display:grid;grid-template-columns:1fr 1.6fr;
+  gap:80px;padding:80px 0;border-bottom:var(--rule);
+  align-items:start;
+}
+.sd-left h3{font-size:26px;font-weight:600;letter-spacing:-0.025em;margin-bottom:12px;line-height:1.2}
+.sd-num{font-size:11px;font-weight:400;letter-spacing:0.14em;color:var(--i45);margin-bottom:16px;display:block}
+.sd-tags-inline{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.sd-tag{font-size:11px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--i45);border:var(--rule);padding:6px 12px;border-radius:4px}
+.sd-right p{font-size:15px;font-weight:300;line-height:1.85;color:var(--i70)}
+.sd-right p+p{margin-top:16px}
+.sd-outcomes{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sd-outcome{background:var(--warm);border-radius:8px;padding:20px}
+.sd-outcome-label{font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--i45);margin-bottom:6px;display:block}
+.sd-outcome-text{font-size:13px;font-weight:400;color:var(--ink);line-height:1.4}
+
+/* ── CONTACT PAGE ────────────────────────────────────────────────────────────── */
+.contact-hero{padding:160px 0 80px;border-bottom:var(--rule)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;padding:80px 0}
+.contact-info h3{font-size:24px;font-weight:600;letter-spacing:-0.025em;margin-bottom:16px}
+.contact-info p{font-size:15px;font-weight:300;line-height:1.8;color:var(--i70);margin-bottom:40px}
+.contact-detail{display:flex;flex-direction:column;gap:20px}
+.cd-item{display:flex;flex-direction:column;gap:4px}
+.cd-label{font-size:10px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--i45)}
+.cd-value{font-size:15px;font-weight:400;color:var(--ink)}
+.form-group{margin-bottom:24px}
+.form-label{font-size:12px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--i70);display:block;margin-bottom:8px}
+.form-input,.form-textarea,.form-select{
+  width:100%;font-family:inherit;font-size:15px;font-weight:300;
+  color:var(--ink);background:var(--warm);
+  border:var(--rule);border-radius:8px;padding:14px 18px;
+  outline:none;transition:border-color var(--fast),background var(--fast);
+  -webkit-appearance:none;
+}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--stone);background:var(--cream)}
+.form-textarea{resize:vertical;min-height:140px;line-height:1.7}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-submit{
+  width:100%;font-family:inherit;font-size:15px;font-weight:500;
+  color:var(--cream);background:var(--ink);
+  border:none;border-radius:8px;padding:16px;
+  cursor:pointer;transition:opacity var(--fast);letter-spacing:0.02em;
+}
+.form-submit:hover{opacity:0.78}
+.form-note{font-size:12px;font-weight:300;color:var(--i45);margin-top:14px;text-align:center}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────────── */
+footer{
+  padding:48px;border-top:var(--rule);
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:32px;
+}
+.footer-logo{font-size:15px;font-weight:600;letter-spacing:-0.025em;cursor:pointer}
+.footer-logo span{color:var(--gold)}
+.footer-links{display:flex;align-items:center;gap:32px}
+.footer-link{font-size:13px;font-weight:300;color:var(--i45);transition:color var(--fast);cursor:pointer}
+.footer-link:hover{color:var(--ink)}
+.footer-right{text-align:right;font-size:12px;font-weight:300;color:var(--i45)}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────────── */
+@media(max-width:1024px){
+  .wrap{padding:0 32px}
+  nav{padding:0 32px}
+  .hero-inner{padding:64px 32px 56px}
+  .hero-scroll{padding:20px 32px}
+  footer{padding:36px 32px}
+  .value-grid{grid-template-columns:1fr}
+  .testi-grid,.cases-grid{grid-template-columns:repeat(2,1fr)}
+  .engagement-grid{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:repeat(3,1fr)}
+  .about-split{grid-template-columns:1fr;gap:48px}
+  .stat-row{grid-template-columns:repeat(3,1fr);gap:32px}
+  .services-detail .service-detail-row{grid-template-columns:1fr;gap:40px}
+  .contact-grid{grid-template-columns:1fr;gap:56px}
+  footer{grid-template-columns:1fr;gap:24px;text-align:center}
+  .footer-links{justify-content:center}
+  .footer-right{text-align:center}
+}
+@media(max-width:768px){
+  .wrap{padding:0 24px}
+  nav{padding:0 24px}
+  .hero-inner{padding:52px 24px 44px}
+  .hero-scroll{display:none}
+  .section-lg{padding:80px 0}
+  .section-md{padding:60px 0}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero-headline{font-size:42px}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .service-row{grid-template-columns:40px 1fr;gap:20px}
+  .service-row .service-row-desc{grid-column:2}
+  .service-row .service-row-tags{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
+  .testi-grid,.cases-grid{grid-template-columns:1fr}
+  .engagement-grid{grid-template-columns:1fr 1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr;gap:28px}
+  .sd-outcomes{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  footer{padding:32px 24px}
+  .about-hero,.services-hero,.contact-hero{padding:120px 0 60px}
+}
+@media(max-width:480px){
+  .engagement-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo" onclick="showPage('home')">Rhims<span>.</span></div>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="showPage('home',this)">Home</button>
+    <button class="nav-link" onclick="showPage('about',this)">About</button>
+    <button class="nav-link" onclick="showPage('services',this)">Services</button>
+    <button class="nav-link" onclick="showPage('contact',this)">Contact</button>
+  </div>
+  <button class="nav-cta" onclick="showPage('contact')">Work with us</button>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-nav-link" onclick="showPage('home');toggleMenu()">Home</div>
+  <div class="mobile-nav-link" onclick="showPage('about');toggleMenu()">About</div>
+  <div class="mobile-nav-link" onclick="showPage('services');toggleMenu()">Services</div>
+  <div class="mobile-nav-link" onclick="showPage('contact');toggleMenu()">Contact</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HOME
+════════════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="eyebrow hero-tag">
+        <span class="label">Brand Strategy &amp; Creative Co.</span>
+      </div>
+      <h1 class="hero-headline">
+        Your brand's<br><span class="serif">full potential,</span><br>realised.
+      </h1>
+      <p class="hero-sub">We build consumer brands that lead their categories. Strategy, identity, campaigns, and distribution — under one roof, from day one.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('contact')">Start a project <span>→</span></button>
+        <button class="btn-ghost" onclick="showPage('services')">View capabilities</button>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-items">
+        <span class="hero-scroll-item">Beauty</span>
+        <span class="hero-scroll-item">Fashion</span>
+        <span class="hero-scroll-item">Lifestyle</span>
+        <span class="hero-scroll-item">FMCG</span>
+      </div>
+      <span class="label">Since 2022</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item">Brand Strategy <span class="mdot"></span></div>
+      <div class="marquee-item">Identity Design <span class="mdot"></span></div>
+      <div class="marquee-item">Packaging <span class="mdot"></span></div>
+      <div class="marquee-item">Campaign Development <span class="mdot"></span></div>
+      <div class="marquee-item">Retail Distribution <span class="mdot"></span></div>
+      <div class="marquee-item">Influencer Strategy <span class="mdot"></span></div>
+      <div class="marquee-item">Market Positioning <span class="mdot"></span></div>
+      <div class="marquee-item">Brand Transformation <span class="mdot"></span></div>
+      <div class="marquee-item">Brand Strategy <span class="mdot"></span></div>
+      <div class="marquee-item">Identity Design <span class="mdot"></span></div>
+      <div class="marquee-item">Packaging <span class="mdot"></span></div>
+      <div class="marquee-item">Campaign Development <span class="mdot"></span></div>
+      <div class="marquee-item">Retail Distribution <span class="mdot"></span></div>
+      <div class="marquee-item">Influencer Strategy <span class="mdot"></span></div>
+      <div class="marquee-item">Market Positioning <span class="mdot"></span></div>
+      <div class="marquee-item">Brand Transformation <span class="mdot"></span></div>
+    </div>
+  </div>
+
+  <!-- VALUE PROPS -->
+  <section class="section-lg">
+    <div class="wrap">
+      <div class="section-header ao">
+        <div class="eyebrow"><span class="label">Why Rhims</span></div>
+        <h2 class="section-title">Not an agency.<br><span class="serif">A brand partner.</span></h2>
+        <p class="section-sub">Most brands fail not because the product is weak. Because the brand was never built. We change that.</p>
+      </div>
+      <div class="value-grid">
+        <div class="value-card ao d1">
+          <span class="value-num">01</span>
+          <div class="value-title">Strategy before everything</div>
+          <p class="value-body">We don't execute until we understand. Every deliverable starts with a strategic argument. If it can't be justified, it doesn't ship.</p>
+        </div>
+        <div class="value-card ao d2">
+          <span class="value-num">02</span>
+          <div class="value-title">African intelligence. Global standard.</div>
+          <p class="value-body">We understand the African consumer at a depth most global firms simply don't have. Paired with world-class methodology, it's a rare combination.</p>
+        </div>
+        <div class="value-card ao d3">
+          <span class="value-num">03</span>
+          <div class="value-title">One team. Zero gaps.</div>
+          <p class="value-body">Strategy, identity, campaigns, retail — all under one roof. No handoffs between vendors. One team holds your brand from start to scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section-lg" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-header ao">
+        <div class="eyebrow"><span class="label">What we do</span></div>
+        <h2 class="section-title">Six capabilities.<br><span class="serif">One transformation.</span></h2>
+      </div>
+      <div class="services-list">
+        <div class="service-row ao d1">
+          <span class="service-row-num">01</span>
+          <div class="service-row-name">Brand Identity &amp; Design</div>
+          <p class="service-row-desc">The complete visual world of your brand. Logo, identity system, packaging, brand assets, campaign visuals — coherent across every touchpoint.</p>
+          <div class="service-row-tags"><span class="service-tag">Identity</span><span class="service-tag">Packaging</span><span class="service-tag">Assets</span></div>
+        </div>
+        <div class="service-row ao d2">
+          <span class="service-row-num">02</span>
+          <div class="service-row-name">Digital &amp; Social Strategy</div>
+          <p class="service-row-desc">Content ecosystems, influencer architecture, paid media, and platform strategy built to grow audiences and convert at scale.</p>
+          <div class="service-row-tags"><span class="service-tag">Content</span><span class="service-tag">Influencer</span><span class="service-tag">Paid</span></div>
+        </div>
+        <div class="service-row ao d3">
+          <span class="service-row-num">03</span>
+          <div class="service-row-name">Integrated Campaigns</div>
+          <p class="service-row-desc">Outdoor, experiential, PR, broadcast, and digital. One unified brand moment across every surface.</p>
+          <div class="service-row-tags"><span class="service-tag">OOH</span><span class="service-tag">PR</span><span class="service-tag">Events</span></div>
+        </div>
+        <div class="service-row ao d4">
+          <span class="service-row-num">04</span>
+          <div class="service-row-name">Brand Partnerships &amp; Collaborations</div>
+          <p class="service-row-desc">Celebrity, talent, and brand alliances that create cultural moments and expand audiences beyond what media spend alone can achieve.</p>
+          <div class="service-row-tags"><span class="service-tag">Celebrity</span><span class="service-tag">Collabs</span><span class="service-tag">Talent</span></div>
+        </div>
+        <div class="service-row ao d5">
+          <span class="service-row-num">05</span>
+          <div class="service-row-name">Retail Channel Partnerships</div>
+          <p class="service-row-desc">Placement inside major retail chains and beauty destinations. Distribution at scale, negotiated and activated end to end.</p>
+          <div class="service-row-tags"><span class="service-tag">Retail</span><span class="service-tag">Distribution</span><span class="service-tag">Trade</span></div>
+        </div>
+        <div class="service-row ao d6">
+          <span class="service-row-num">06</span>
+          <div class="service-row-name">Brand Consulting &amp; Repositioning</div>
+          <p class="service-row-desc">Audits, competitive analysis, audience research, and the strategic roadmap that turns a good brand into an inevitable one.</p>
+          <div class="service-row-tags"><span class="service-tag">Audit</span><span class="service-tag">Positioning</span><span class="service-tag">Strategy</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section section-lg">
+    <div class="wrap">
+      <div class="section-header ao" style="margin-bottom:56px">
+        <div class="eyebrow" style="margin-bottom:24px"><span class="label" style="color:rgba(247,244,239,0.4)">How we work</span></div>
+        <h2 class="section-title" style="color:var(--cream)">The Rhims <span class="serif">Method</span></h2>
+        <p class="section-sub" style="color:rgba(247,244,239,0.48)">Five phases. No shortcuts. Brand transformation is disciplined thinking, executed with conviction.</p>
+      </div>
+      <div class="process-steps">
+        <div class="ps ao d1"><span class="ps-num">01</span><div class="ps-title">Diagnose</div><p class="ps-body">Deep brand audit. Competitive landscape. Audience truth. We don't strategise until we understand completely.</p></div>
+        <div class="ps ao d2"><span class="ps-num">02</span><div class="ps-title">Position</div><p class="ps-body">Messaging architecture. Market positioning. The clear defensible space your brand will own permanently.</p></div>
+        <div class="ps ao d3"><span class="ps-num">03</span><div class="ps-title">Create</div><p class="ps-body">Identity, campaigns, content. Every creative decision is a strategic argument for the brand.</p></div>
+        <div class="ps ao d4"><span class="ps-num">04</span><div class="ps-title">Activate</div><p class="ps-body">Precision rollout. Online, offline, retail, and partnerships launched as one cohesive moment.</p></div>
+        <div class="ps ao d5"><span class="ps-num">05</span><div class="ps-title">Optimise</div><p class="ps-body">Data. Refinement. Iteration. We evolve strategy as the market moves and the brand grows.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section section-lg">
+    <div class="wrap">
+      <div class="section-header center ao">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:16px"><span class="label">Client results</span></div>
+        <h2 class="section-title">Brands that trusted <span class="serif">the process</span></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card ao d1">
+          <p class="testi-quote">"Rhims didn't just rebrand us. They rebuilt how we think about our business. Within six months we had shelf placement in three major retailers we'd been trying to reach for two years."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AF</div>
+            <div><div class="testi-name">Amara Folake</div><div class="testi--role testi-role">Founder, Lumi Beauty</div></div>
+          </div>
+        </div>
+        <div class="testi-card ao d2">
+          <p class="testi-quote">"The strategy they built gave us clarity we'd never had. The identity they created made us look like a global brand. Our audience doubled in four months."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">KO</div>
+            <div><div class="testi-name">Kemi Okonkwo</div><div class="testi-role">CEO, Velt Fashion Lagos</div></div>
+          </div>
+        </div>
+        <div class="testi-card ao d3">
+          <p class="testi-quote">"Every agency we'd worked with before gave us executions. Rhims gave us a brand. The difference is everything."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">TM</div>
+            <div><div class="testi-name">Tunde Makinde</div><div class="testi-role">CMO, Primal Skincare</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="section-lg" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-header ao">
+        <div class="eyebrow"><span class="label">Selected work</span></div>
+        <h2 class="section-title">Brands we've <span class="serif">transformed</span></h2>
+      </div>
+      <div class="cases-grid">
+        <div class="case-card ao d1">
+          <div class="case-img"><span class="case-img-inner">Beauty / Cosmetics</span></div>
+          <div class="case-body">
+            <span class="case-industry">Beauty</span>
+            <div class="case-title">Full brand overhaul for an emerging cosmetics line</div>
+            <p class="case-desc">Identity redesign, packaging system, social strategy, and retail distribution secured across 12 locations nationwide.</p>
+            <div class="case-result">
+              <div class="case-metric"><strong>3x</strong>Revenue growth in 8 months</div>
+              <div class="case-metric"><strong>12</strong>New retail placements</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card ao d2">
+          <div class="case-img"><span class="case-img-inner">Fashion / Lifestyle</span></div>
+          <div class="case-body">
+            <span class="case-industry">Fashion</span>
+            <div class="case-title">Repositioning a fashion brand to compete regionally</div>
+            <p class="case-desc">Brand audit, market repositioning, influencer collaboration strategy, and a launch campaign that generated national press coverage.</p>
+            <div class="case-result">
+              <div class="case-metric"><strong>180k</strong>Campaign impressions</div>
+              <div class="case-metric"><strong>2x</strong>Social following</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card ao d3">
+          <div class="case-img"><span class="case-img-inner">FMCG / Consumer</span></div>
+          <div class="case-body">
+            <span class="case-industry">FMCG</span>
+            <div class="case-title">Taking a consumer goods brand into modern retail</div>
+            <p class="case-desc">Complete packaging redesign, retail channel strategy, and trade marketing execution securing placement in a top-tier supermarket chain.</p>
+            <div class="case-result">
+              <div class="case-metric"><strong>1</strong>Major retail chain secured</div>
+              <div class="case-metric"><strong>40%</strong>Sales uplift post-launch</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENT MODELS -->
+  <section class="section-lg" style="background:var(--warm);padding-top:80px;padding-bottom:80px">
+    <div class="wrap">
+      <div class="section-header ao">
+        <div class="eyebrow"><span class="label">Engagement models</span></div>
+        <h2 class="section-title">How we <span class="serif">engage</span></h2>
+        <p class="section-sub">Every model is designed to align our incentives directly with your outcomes.</p>
+      </div>
+      <div class="engagement-grid">
+        <div class="eg-card ao d1"><span class="eg-name">Retainer</span><p class="eg-desc">Ongoing brand stewardship. Monthly partnership for brands that need continuous strategic management and creative execution.</p></div>
+        <div class="eg-card ao d2"><span class="eg-name">Project</span><p class="eg-desc">Defined scope. Fixed outcome. For rebrands, campaign launches, or a specific transformation with clear deliverables.</p></div>
+        <div class="eg-card ao d3"><span class="eg-name">Commission</span><p class="eg-desc">Performance linked. We broker high-value partnerships and take a percentage. Fully aligned with your wins.</p></div>
+        <div class="eg-card ao d4"><span class="eg-name">Equity</span><p class="eg-desc">For the right brands, we invest our full capability in exchange for a stake. We build it like it is ours. Because it is.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGLINES -->
+  <section class="section-lg" style="padding-top:80px;padding-bottom:0;border-top:var(--rule)">
+    <div class="wrap">
+      <div class="eyebrow ao" style="margin-bottom:40px"><span class="label">Our positioning</span></div>
+      <div>
+        <div class="tagline-row ao d1"><span class="tagline-text">Built to lead. Not just to look good.</span><span class="tagline-note">Primary</span></div>
+        <div class="tagline-row ao d2"><span class="tagline-text">We don't build brands. We build legacies.</span><span class="tagline-note">Manifesto</span></div>
+        <div class="tagline-row ao d3"><span class="tagline-text">Strategy that moves. Creative that stays.</span><span class="tagline-note">Service</span></div>
+        <div class="tagline-row ao d4"><span class="tagline-text">Africa's brands deserve to lead the world.</span><span class="tagline-note">Cultural</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="wrap">
+      <h2 class="cta-headline ao">Ready to build something <span class="serif">unforgettable?</span></h2>
+      <p class="cta-sub ao d1">We take on a limited number of clients each year. If you are serious about your brand, let's talk.</p>
+      <div class="cta-actions ao d2">
+        <button class="btn-light" onclick="showPage('contact')">Start the conversation →</button>
+        <button class="btn-outline-light" onclick="showPage('services')">See all services</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ════════════════════════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <section class="about-hero">
+    <div class="wrap">
+      <div class="eyebrow ao"><span class="label">About Rhims Co.</span></div>
+      <h1 class="about-headline ao d1">We architect brands<br><span class="serif">that lead markets.</span></h1>
+    </div>
+  </section>
+
+  <section class="section-lg">
+    <div class="wrap">
+      <div class="about-split">
+        <div class="ao">
+          <h2 class="section-title" style="margin-bottom:28px">Built on strategy.<br><span class="serif">Driven by outcomes.</span></h2>
+          <div class="stat-row" style="padding:40px 0;margin-bottom:0;border-top:var(--rule)">
+            <div><span class="stat-big">360°</span><span class="stat-desc-text">Brand transformation capability</span></div>
+            <div><span class="stat-big">6</span><span class="stat-desc-text">Strategic capabilities</span></div>
+            <div><span class="stat-big">2022</span><span class="stat-desc-text">Founded</span></div>
+          </div>
+        </div>
+        <div class="about-body ao d2">
+          <p>Rhims was founded on a single observation: most consumer brands in Africa are underbuilt. The products are strong. The founders are driven. But the brand — the strategy, the identity, the presence — was never properly constructed.</p>
+          <p>We exist to close that gap. Rhims is a full-service brand strategy and creative company working with consumer brands in beauty, fashion, lifestyle, and FMCG. We bring the methodology of a global consultancy and the creative conviction of a world-class studio to every engagement.</p>
+          <p>We don't measure success by outputs. We measure it by what changes for your brand in the market. That means we're selective about who we work with, rigorous about how we work, and accountable for every strategic decision we make.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-lg" style="padding-top:0;background:var(--warm)">
+    <div class="wrap" style="padding-top:80px;padding-bottom:80px">
+      <div class="section-header center ao"><h2 class="section-title">What we stand <span class="serif">for</span></h2></div>
+      <div class="values-grid">
+        <div class="val-card ao d1"><div class="val-title">Clarity over noise</div><p class="val-body">We remove ambiguity from brand building. Clear strategy. Clear identity. Clear outcomes. Nothing vague, nothing generic.</p></div>
+        <div class="val-card ao d2"><div class="val-title">Accountability</div><p class="val-body">We make strategic commitments and stand behind them. Our recommendations are defensible, our execution is trackable, and our results are measurable.</p></div>
+        <div class="val-card ao d3"><div class="val-title">Cultural intelligence</div><p class="val-body">We understand the African market at depth. We bring that intelligence to every brand we touch, building brands that resonate locally and compete globally.</p></div>
+        <div class="val-card ao d4"><div class="val-title">Precision execution</div><p class="val-body">Ideas without execution are worthless. We are rigorous in both. Every campaign, every identity, every retail pitch is executed with the same standard we set in strategy.</p></div>
+        <div class="val-card ao d5"><div class="val-title">Long-term thinking</div><p class="val-body">We build brands to last decades, not campaigns. Every decision we make considers the long arc of where a brand needs to be, not just where it is today.</p></div>
+        <div class="val-card ao d6"><div class="val-title">World-class benchmark</div><p class="val-body">We hold ourselves and our clients to a global standard. Not what's acceptable locally. What's competitive globally. Because your customers already think that way.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section-lg">
+    <div class="wrap">
+      <div class="section-header ao">
+        <div class="eyebrow"><span class="label">Why choose Rhims</span></div>
+        <h2 class="section-title">The difference is <span class="serif">clear</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card ao d1">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <div class="why-title">We benchmark against the best</div>
+          <p class="why-body">Not against local competitors. Against Morphe, Glossier, Ogilvy, and Red Antler. We hold ourselves and the brands we work with to a world-class standard — because your customers already do.</p>
+        </div>
+        <div class="why-card ao d2">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="why-title">Strategy before every output</div>
+          <p class="why-body">We don't open a design file until the strategy is locked. Every logo, campaign, and retailer pitch begins with a strategic argument. If it can't be justified, it doesn't ship.</p>
+        </div>
+        <div class="why-card ao d3">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="why-title">No handoffs. No diluted vision.</div>
+          <p class="why-body">Strategy, identity, campaigns, partnerships, retail — all under one roof, in one engagement. One team that holds the whole brand, from brief to market.</p>
+        </div>
+        <div class="why-card ao d4">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="why-title">African intelligence. Global methodology.</div>
+          <p class="why-body">We understand the African consumer at a depth that international firms simply don't have. Combined with world-class brand-building practice, it's a combination that is genuinely rare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2 class="cta-headline ao">Ready to work with <span class="serif">Rhims?</span></h2>
+      <p class="cta-sub ao d1">We take on a limited number of clients each year.</p>
+      <div class="cta-actions ao d2">
+        <button class="btn-light" onclick="showPage('contact')">Get in touch →</button>
+        <button class="btn-outline-light" onclick="showPage('services')">View services</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-about -->
+
+<!-- ════════════════════════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <section class="services-hero">
+    <div class="wrap">
+      <div class="eyebrow ao"><span class="label">Strategic Capabilities</span></div>
+      <h1 class="section-title ao d1" style="font-size:clamp(44px,5vw,72px);max-width:700px;margin-top:16px">Not services.<br><span class="serif">Capabilities.</span></h1>
+      <p class="section-sub ao d2" style="max-width:500px;margin-top:24px">Each capability is a lever — deployed with precision, calibrated to your brand's specific moment, market, and ambition.</p>
+    </div>
+  </section>
+
+  <section class="services-detail">
+    <div class="wrap">
+
+      <div class="service-detail-row ao">
+        <div class="sd-left">
+          <span class="sd-num">01</span>
+          <h3>Brand Identity &amp; Design</h3>
+          <div class="sd-tags-inline">
+            <span class="sd-tag">Visual Identity</span>
+            <span class="sd-tag">Packaging</span>
+            <span class="sd-tag">Brand Assets</span>
+            <span class="sd-tag">Guidelines</span>
+          </div>
+        </div>
+        <div class="sd-right">
+          <p>Your brand identity is not just your logo. It is the complete visual world your brand inhabits — across every surface your customers encounter. We build identity systems that are coherent, scalable, and unmistakable.</p>
+          <p>From the logomark to the packaging architecture to the brand asset library, every element is designed with strategic intent. The output is a brand that looks like it belongs at the top of its category — because it does.</p>
+          <div class="sd-outcomes">
+            <div class="sd-outcome"><span class="sd-outcome-label">You get</span><span class="sd-outcome-text">A complete visual identity system ready for global use</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">The outcome</span><span class="sd-outcome-text">Immediate brand recognition and shelf authority</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">Timeline</span><span class="sd-outcome-text">6 to 12 weeks depending on scope</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-detail-row ao">
+        <div class="sd-left">
+          <span class="sd-num">02</span>
+          <h3>Digital &amp; Social Strategy</h3>
+          <div class="sd-tags-inline">
+            <span class="sd-tag">Content</span>
+            <span class="sd-tag">Influencer</span>
+            <span class="sd-tag">Paid Media</span>
+            <span class="sd-tag">Community</span>
+          </div>
+        </div>
+        <div class="sd-right">
+          <p>Social media is not a distribution channel. It is where brand perception is built in real time. We build content ecosystems, influencer architectures, and paid media strategies that shift how your audience thinks about your brand.</p>
+          <p>We don't just grow numbers. We build communities that convert. Every platform strategy is tied to a clear audience insight, a defined brand voice, and a measurable conversion objective.</p>
+          <div class="sd-outcomes">
+            <div class="sd-outcome"><span class="sd-outcome-label">You get</span><span class="sd-outcome-text">A full-stack digital strategy with execution included</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">The outcome</span><span class="sd-outcome-text">Audience growth, brand authority, measurable sales lift</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">Engagement</span><span class="sd-outcome-text">Retainer or project-based</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-detail-row ao">
+        <div class="sd-left">
+          <span class="sd-num">03</span>
+          <h3>Integrated Campaigns</h3>
+          <div class="sd-tags-inline">
+            <span class="sd-tag">OOH</span>
+            <span class="sd-tag">Experiential</span>
+            <span class="sd-tag">PR</span>
+            <span class="sd-tag">Broadcast</span>
+          </div>
+        </div>
+        <div class="sd-right">
+          <p>The most powerful brand moments happen when every channel speaks with one voice, at the same time. We design campaigns that move across outdoor, digital, experiential, broadcast, and PR — as a single, unified moment that is impossible to ignore.</p>
+          <p>Whether it's a product launch, a brand repositioning, or a seasonal push, we orchestrate the full campaign from concept through activation.</p>
+          <div class="sd-outcomes">
+            <div class="sd-outcome"><span class="sd-outcome-label">You get</span><span class="sd-outcome-text">A fully integrated campaign across all relevant surfaces</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">The outcome</span><span class="sd-outcome-text">Mass awareness and measurable brand lift</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">Engagement</span><span class="sd-outcome-text">Project-based</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-detail-row ao">
+        <div class="sd-left">
+          <span class="sd-num">04</span>
+          <h3>Brand Partnerships &amp; Collaborations</h3>
+          <div class="sd-tags-inline">
+            <span class="sd-tag">Celebrity</span>
+            <span class="sd-tag">Brand Deals</span>
+            <span class="sd-tag">Talent</span>
+          </div>
+        </div>
+        <div class="sd-right">
+          <p>The right collaboration can do in one moment what years of advertising cannot. We identify, pitch, and manage high-leverage alliances — with talent, celebrities, and complementary brands — that create genuine cultural moments and expand your audience.</p>
+          <p>From negotiation through execution, we manage the relationship so your team can focus on what matters. Every deal is structured to protect your brand and maximise the strategic value of the collaboration.</p>
+          <div class="sd-outcomes">
+            <div class="sd-outcome"><span class="sd-outcome-label">You get</span><span class="sd-outcome-text">Fully brokered and managed brand partnerships</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">The outcome</span><span class="sd-outcome-text">New audiences, cultural relevance, brand elevation</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">Engagement</span><span class="sd-outcome-text">Commission or project-based</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-detail-row ao">
+        <div class="sd-left">
+          <span class="sd-num">05</span>
+          <h3>Retail Channel Partnerships</h3>
+          <div class="sd-tags-inline">
+            <span class="sd-tag">Retail Access</span>
+            <span class="sd-tag">Distribution</span>
+            <span class="sd-tag">Trade Marketing</span>
+          </div>
+        </div>
+        <div class="sd-right">
+          <p>Getting your product onto the right shelves is one of the highest-leverage moves a consumer brand can make. We secure placement inside major retail chains and beauty destinations — putting your brand in front of mass audiences, nationwide and worldwide.</p>
+          <p>From retailer pitch decks to trade marketing strategy to negotiating shelf placement, we manage the full process. The goal is not just access — it's strategic presence at the point of purchase.</p>
+          <div class="sd-outcomes">
+            <div class="sd-outcome"><span class="sd-outcome-label">You get</span><span class="sd-outcome-text">Secured retail placements and trade marketing execution</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">The outcome</span><span class="sd-outcome-text">Mass distribution and new revenue channels</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">Engagement</span><span class="sd-outcome-text">Commission or retainer</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-detail-row ao">
+        <div class="sd-left">
+          <span class="sd-num">06</span>
+          <h3>Brand Consulting &amp; Repositioning</h3>
+          <div class="sd-tags-inline">
+            <span class="sd-tag">Brand Audit</span>
+            <span class="sd-tag">Positioning</span>
+            <span class="sd-tag">Research</span>
+            <span class="sd-tag">Roadmap</span>
+          </div>
+        </div>
+        <div class="sd-right">
+          <p>Before any execution can be meaningful, the strategy must be right. This is where we start with every client. A thorough brand audit, competitive landscape analysis, audience research, and market positioning that identifies the clear defensible space your brand can own.</p>
+          <p>The output is a strategic roadmap — a document that answers the most important questions: who you are, who you're for, why you win, and exactly how to get there.</p>
+          <div class="sd-outcomes">
+            <div class="sd-outcome"><span class="sd-outcome-label">You get</span><span class="sd-outcome-text">A complete brand strategy document and roadmap</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">The outcome</span><span class="sd-outcome-text">Clarity, direction, and a defensible market position</span></div>
+            <div class="sd-outcome"><span class="sd-outcome-label">Timeline</span><span class="sd-outcome-text">3 to 6 weeks</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2 class="cta-headline ao">Not sure where to <span class="serif">start?</span></h2>
+      <p class="cta-sub ao d1">Most clients begin with a brand audit. Let's talk about what your brand needs most.</p>
+      <div class="cta-actions ao d2">
+        <button class="btn-light" onclick="showPage('contact')">Book a discovery call →</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-services -->
+
+<!-- ════════════════════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <section class="contact-hero">
+    <div class="wrap">
+      <div class="eyebrow ao"><span class="label">Get in touch</span></div>
+      <h1 class="section-title ao d1" style="font-size:clamp(44px,5vw,72px);max-width:680px;margin-top:16px">Let's build something <span class="serif">worth remembering.</span></h1>
+      <p class="section-sub ao d2" style="margin-top:24px">We take on a limited number of clients each year. Tell us about your brand and what you're trying to achieve.</p>
+    </div>
+  </section>
+
+  <section class="section-lg">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info ao">
+          <h3>Talk to us</h3>
+          <p>Whether you're ready to start or still figuring out what you need, we're happy to have a conversation. No pressure, no pitch — just a direct discussion about your brand.</p>
+          <div class="contact-detail">
+            <div class="cd-item">
+              <span class="cd-label">Email</span>
+              <span class="cd-value">hello@rhims.xyz</span>
+            </div>
+            <div class="cd-item">
+              <span class="cd-label">Website</span>
+              <span class="cd-value">rhims.xyz</span>
+            </div>
+            <div class="cd-item">
+              <span class="cd-label">Response time</span>
+              <span class="cd-value">Within 24 hours</span>
+            </div>
+            <div class="cd-item">
+              <span class="cd-label">Availability</span>
+              <span class="cd-value">New projects, Q3 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="ao d2" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First name</label>
+              <input class="form-input" type="text" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last name</label>
+              <input class="form-input" type="text" placeholder="Your last name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email address</label>
+            <input class="form-input" type="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Company / Brand name</label>
+            <input class="form-input" type="text" placeholder="Your brand name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">What are you looking for?</label>
+            <select class="form-select">
+              <option value="" disabled selected>Select a service</option>
+              <option>Brand Identity &amp; Design</option>
+              <option>Digital &amp; Social Strategy</option>
+              <option>Integrated Campaign</option>
+              <option>Brand Partnership / Collab</option>
+              <option>Retail Channel Partnership</option>
+              <option>Brand Consulting &amp; Repositioning</option>
+              <option>Full brand transformation</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tell us about your brand</label>
+            <textarea class="form-textarea" placeholder="What does your brand do, where are you now, and what do you want to achieve?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send message</button>
+          <p class="form-note">We respond to every message within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" onclick="showPage('home')">Rhims<span>.</span></div>
+  <div class="footer-links">
+    <span class="footer-link" onclick="showPage('home')">Home</span>
+    <span class="footer-link" onclick="showPage('about')">About</span>
+    <span class="footer-link" onclick="showPage('services')">Services</span>
+    <span class="footer-link" onclick="showPage('contact')">Contact</span>
+  </div>
+  <div class="footer-right">
+    <div style="margin-bottom:4px">rhims.xyz</div>
+    <div>© 2025 Rhims Co. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ── PAGE ROUTING ──────────────────────────────────────────────────────────────
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  else {
+    document.querySelectorAll('.nav-link').forEach(l => {
+      if (l.textContent.toLowerCase().trim() === id) l.classList.add('active');
+    });
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(observeAll, 100);
+}
+
+// ── MOBILE MENU ───────────────────────────────────────────────────────────────
+function toggleMenu() {
+  const m = document.getElementById('mobile-menu');
+  m.classList.toggle('open');
+}
+
+// ── SCROLL ANIMATIONS ─────────────────────────────────────────────────────────
+function observeAll() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.ao:not(.vis)').forEach(el => obs.observe(el));
+}
+document.addEventListener('DOMContentLoaded', observeAll);
+
+// ── FORM ──────────────────────────────────────────────────────────────────────
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Message sent. We will be in touch.';
+  btn.style.background = 'var(--stone)';
+  btn.disabled = true;
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+observeAll();
+</script>
+</body>
+</html>
