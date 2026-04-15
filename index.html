@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rhims Co. — The Partner Founders Build With</title>
+<title>Rhims — The Partner Founders Build With</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -22,37 +22,26 @@
   --fast:   0.18s cubic-bezier(0.4,0,0.2,1);
   --smooth: 0.6s cubic-bezier(0.16,1,0.3,1);
 }
-
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
-
-/* ── TYPE ── */
 .serif{font-family:'Playfair Display',Georgia,serif}
 .serif-i{font-family:'Playfair Display',Georgia,serif;font-style:italic}
 .label{font-size:10.5px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--i45)}
 .eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:32px}
 .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0}
-
-/* ── LAYOUT ── */
 .wrap{max-width:1140px;margin:0 auto;padding:0 52px}
 section{position:relative}
-
-/* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .ao{opacity:0;transform:translateY(24px);transition:opacity var(--smooth),transform var(--smooth)}
 .ao.vis{opacity:1;transform:none}
 .ao.d1{transition-delay:.07s}.ao.d2{transition-delay:.14s}.ao.d3{transition-delay:.21s}
 .ao.d4{transition-delay:.28s}.ao.d5{transition-delay:.35s}.ao.d6{transition-delay:.42s}
-
-/* ── PAGE SYSTEM ── */
 .page{display:none;min-height:100vh}
 .page.active{display:block}
-
-/* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   height:66px;padding:0 52px;
@@ -66,144 +55,64 @@ nav{
 .nav-links{display:flex;align-items:center;gap:4px}
 .nav-link{font-size:13px;font-weight:400;color:var(--i70);padding:8px 16px;border-radius:6px;transition:all var(--fast);cursor:pointer}
 .nav-link:hover,.nav-link.active{color:var(--ink);background:var(--i08)}
-.nav-cta{
-  font-size:13px;font-weight:500;letter-spacing:0.03em;
-  color:var(--cream);background:var(--ink);
-  padding:10px 24px;border-radius:6px;margin-left:10px;
-  transition:opacity var(--fast);cursor:pointer;
-}
+.nav-cta{font-size:13px;font-weight:500;letter-spacing:0.03em;color:var(--cream);background:var(--ink);padding:10px 24px;border-radius:6px;margin-left:10px;transition:opacity var(--fast);cursor:pointer}
 .nav-cta:hover{opacity:0.76}
 .hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
 .hamburger span{width:22px;height:1.5px;background:var(--ink);display:block;transition:var(--fast)}
-.mobile-menu{
-  display:none;position:fixed;inset:0;z-index:190;
-  background:var(--cream);padding:84px 36px 48px;
-  flex-direction:column;gap:0;
-}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:190;background:var(--cream);padding:84px 36px 48px;flex-direction:column;gap:0}
 .mobile-menu.open{display:flex}
 .mob-link{font-family:'Playfair Display',serif;font-size:32px;font-weight:600;padding:18px 0;border-bottom:var(--rule);color:var(--ink);cursor:pointer;transition:color var(--fast)}
 .mob-link:hover{color:var(--gold)}
-
-/* ── HERO ── */
-#hero{
-  padding-top:66px;min-height:100vh;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  border-bottom:var(--rule);overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background:
-    radial-gradient(ellipse 70% 60% at 85% 20%, rgba(184,148,90,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 10% 90%, rgba(184,148,90,0.05) 0%, transparent 60%);
-}
+#hero{padding-top:66px;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:var(--rule);overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 85% 20%, rgba(184,148,90,0.07) 0%, transparent 70%),radial-gradient(ellipse 50% 80% at 10% 90%, rgba(184,148,90,0.05) 0%, transparent 60%)}
 .hero-inner{position:relative;z-index:1;padding:88px 52px 80px;max-width:1140px;margin:0 auto;width:100%}
 .hero-eyebrow{animation:fadeUp 0.7s var(--smooth) 0.1s both}
-.hero-headline{
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:clamp(54px,7vw,104px);
-  font-weight:600;
-  letter-spacing:-0.03em;
-  line-height:0.97;
-  max-width:820px;
-  margin:28px 0 0;
-  animation:fadeUp 0.75s var(--smooth) 0.2s both;
-}
+.hero-headline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(54px,7vw,104px);font-weight:600;letter-spacing:-0.03em;line-height:0.97;max-width:820px;margin:28px 0 0;animation:fadeUp 0.75s var(--smooth) 0.2s both}
 .hero-headline em{font-style:italic;color:var(--gold)}
 .hero-divider{width:48px;height:1px;background:var(--gold);margin:40px 0;animation:fadeIn 0.8s var(--smooth) 0.38s both}
-.hero-sub{
-  max-width:480px;font-size:17px;font-weight:300;line-height:1.8;
-  color:var(--i70);margin-bottom:52px;
-  animation:fadeUp 0.7s var(--smooth) 0.42s both;
-}
-.hero-actions{
-  display:flex;align-items:center;gap:14px;
-  animation:fadeUp 0.7s var(--smooth) 0.52s both;
-}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:13.5px;font-weight:500;letter-spacing:0.03em;
-  color:var(--cream);background:var(--ink);
-  padding:14px 30px;border-radius:7px;
-  transition:opacity var(--fast);cursor:pointer;
-}
+.hero-sub{max-width:480px;font-size:17px;font-weight:300;line-height:1.8;color:var(--i70);margin-bottom:52px;animation:fadeUp 0.7s var(--smooth) 0.42s both}
+.hero-actions{display:flex;align-items:center;gap:14px;animation:fadeUp 0.7s var(--smooth) 0.52s both}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;letter-spacing:0.03em;color:var(--cream);background:var(--ink);padding:14px 30px;border-radius:7px;transition:opacity var(--fast);cursor:pointer}
 .btn-primary:hover{opacity:0.76}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:13.5px;font-weight:400;
-  color:var(--i70);padding:14px 22px;border-radius:7px;
-  border:var(--rule);transition:all var(--fast);cursor:pointer;
-}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:400;color:var(--i70);padding:14px 22px;border-radius:7px;border:var(--rule);transition:all var(--fast);cursor:pointer}
 .btn-ghost:hover{color:var(--ink);border-color:var(--stone);background:var(--i08)}
-.hero-bottom{
-  position:relative;z-index:1;
-  padding:20px 52px;max-width:1140px;margin:0 auto;width:100%;
-  display:flex;align-items:center;justify-content:space-between;
-  border-top:var(--rule);
-  animation:fadeIn 0.9s var(--smooth) 0.68s both;
-}
+.hero-bottom{position:relative;z-index:1;padding:20px 52px;max-width:1140px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;border-top:var(--rule);animation:fadeIn 0.9s var(--smooth) 0.68s both}
 .hero-cats{display:flex;align-items:center;gap:36px}
 .hero-cat{font-size:10.5px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--i45)}
-
-/* ── TICKER ── */
 .ticker-wrap{overflow:hidden;background:var(--ink);padding:15px 0;border-bottom:var(--rule)}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ticker-track{display:flex;width:max-content;animation:tick 36s linear infinite}
 .tick-item{display:flex;align-items:center;gap:20px;padding:0 20px;font-size:10.5px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(246,243,238,0.35);white-space:nowrap}
 .tick-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:0.5;flex-shrink:0}
-
-/* ── SECTIONS ── */
 .section-xl{padding:136px 0}
 .section-lg{padding:108px 0}
 .section-md{padding:80px 0}
-
-/* ── SECTION HEADER ── */
 .sh{margin-bottom:72px}
 .sh.center{text-align:center}
 .sh-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(38px,4.2vw,58px);font-weight:600;letter-spacing:-0.03em;line-height:1.06}
 .sh-sub{font-size:16px;font-weight:300;line-height:1.8;color:var(--i70);max-width:520px;margin-top:20px}
 .sh.center .sh-sub{margin:20px auto 0}
-
-/* ── FOUNDER GAP — hero statement section ── */
 .gap-section{background:var(--ink);padding:100px 0}
 .gap-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.gap-quote{
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:clamp(28px,3.2vw,44px);
-  font-style:italic;
-  font-weight:400;
-  color:var(--cream);
-  line-height:1.25;
-}
+.gap-quote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.2vw,44px);font-style:italic;font-weight:400;color:var(--cream);line-height:1.25}
 .gap-quote em{color:var(--gold);font-style:normal}
 .gap-right{border-left:1px solid rgba(246,243,238,0.1);padding-left:72px}
 .gap-right p{font-size:15px;font-weight:300;line-height:1.85;color:rgba(246,243,238,0.55);margin-bottom:20px}
 .gap-right p:last-child{margin-bottom:0}
-
-/* ── VALUE PILLARS ── */
 .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--i20);border:var(--rule);border-radius:14px;overflow:hidden}
 .pillar{background:var(--cream);padding:44px 36px;transition:background var(--fast)}
 .pillar:hover{background:var(--warm)}
 .pillar-num{font-size:10px;font-weight:400;letter-spacing:0.2em;color:var(--gold);margin-bottom:24px;display:block}
 .pillar-title{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-0.02em;margin-bottom:14px;line-height:1.2}
 .pillar-body{font-size:13.5px;font-weight:300;line-height:1.82;color:var(--i70)}
-
-/* ── WHAT WE DO ── */
 .capabilities-list{border-top:var(--rule)}
-.cap-row{
-  display:grid;grid-template-columns:56px 1fr 1.3fr auto;
-  gap:44px;align-items:start;
-  padding:44px 0;border-bottom:var(--rule);
-  transition:background var(--fast),padding var(--fast),margin var(--fast);
-  cursor:default;
-}
+.cap-row{display:grid;grid-template-columns:56px 1fr 1.3fr auto;gap:44px;align-items:start;padding:44px 0;border-bottom:var(--rule);transition:background var(--fast),padding var(--fast),margin var(--fast);cursor:default}
 .cap-row:hover{background:var(--i08);padding:44px 28px;margin:0 -28px}
 .cap-num{font-size:10px;font-weight:400;letter-spacing:0.15em;color:var(--gold);padding-top:5px}
 .cap-name{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.2}
 .cap-desc{font-size:13.5px;font-weight:300;line-height:1.82;color:var(--i70)}
 .cap-tags{display:flex;flex-direction:column;align-items:flex-end;gap:6px;padding-top:4px}
 .cap-tag{font-size:9.5px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--i45)}
-
-/* ── PROCESS ── */
 .process-section{background:var(--ink)}
 .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(246,243,238,0.07);border:1px solid rgba(246,243,238,0.07)}
 .ps{background:var(--ink);padding:44px 30px;transition:background var(--fast)}
@@ -211,24 +120,18 @@ nav{
 .ps-num{font-size:10px;font-weight:400;letter-spacing:0.2em;color:var(--gold);opacity:0.7;margin-bottom:28px;display:block}
 .ps-title{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:600;color:var(--cream);margin-bottom:14px;line-height:1.25}
 .ps-body{font-size:13px;font-weight:300;line-height:1.78;color:rgba(246,243,238,0.38)}
-
-/* ── WHY RHIMS ── */
 .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--i20);border:var(--rule);border-radius:14px;overflow:hidden}
 .why-card{background:var(--warm);padding:52px 48px;transition:background var(--fast)}
 .why-card:hover{background:var(--cream)}
 .why-num{font-size:10px;font-weight:400;letter-spacing:0.2em;color:var(--gold);margin-bottom:18px;display:block}
 .why-title{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-0.02em;margin-bottom:14px;line-height:1.25}
 .why-body{font-size:13.5px;font-weight:300;line-height:1.82;color:var(--i70)}
-
-/* ── ENGAGEMENT ── */
 .eng-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--i20);border:var(--rule);border-radius:14px;overflow:hidden}
 .eg{background:var(--cream);padding:40px 32px;transition:background var(--fast)}
 .eg:hover{background:var(--warm)}
 .eg-name{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:30px;font-weight:400;color:var(--ink);margin-bottom:8px;display:block;line-height:1.05}
 .eg-label{font-size:9.5px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
 .eg-desc{font-size:13px;font-weight:300;line-height:1.8;color:var(--i70)}
-
-/* ── TESTIMONIALS ── */
 .testi-section{background:var(--warm)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .testi-card{background:var(--cream);border:var(--rule);border-radius:12px;padding:36px 32px}
@@ -237,56 +140,19 @@ nav{
 .testi-av{width:38px;height:38px;border-radius:50%;background:var(--i08);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--i70);flex-shrink:0;border:var(--rule)}
 .testi-name{font-size:13px;font-weight:500;color:var(--ink)}
 .testi-role{font-size:11.5px;font-weight:300;color:var(--i45);margin-top:2px}
-
-/* ── CASE STUDIES ── */
-.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.case-card{background:var(--warm);border:var(--rule);border-radius:12px;overflow:hidden;transition:transform var(--fast),border-color var(--fast);cursor:pointer}
-.case-card:hover{transform:translateY(-4px);border-color:var(--stone)}
-.case-img{height:196px;background:var(--i08);display:flex;align-items:center;justify-content:center;border-bottom:var(--rule)}
-.case-img-label{font-size:10px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--i45)}
-.case-body{padding:28px}
-.case-industry{font-size:9.5px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
-.case-title{font-size:16px;font-weight:600;letter-spacing:-0.02em;margin-bottom:10px;line-height:1.3}
-.case-desc{font-size:13px;font-weight:300;line-height:1.75;color:var(--i70)}
-.case-metrics{margin-top:20px;padding-top:20px;border-top:var(--rule);display:flex;gap:20px}
-.case-metric{font-size:11px;font-weight:400;color:var(--i45)}
-.case-metric strong{display:block;font-family:'Playfair Display',serif;font-size:22px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);margin-bottom:2px}
-
-/* ── TAGLINES ── */
-.tagline-row{
-  display:flex;align-items:baseline;justify-content:space-between;
-  padding:22px 0;border-bottom:var(--rule);gap:32px;
-  transition:padding-left var(--fast);cursor:default;
-}
+.tagline-row{display:flex;align-items:baseline;justify-content:space-between;padding:22px 0;border-bottom:var(--rule);gap:32px;transition:padding-left var(--fast);cursor:default}
 .tagline-row:hover{padding-left:14px}
 .tagline-text{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(18px,2.3vw,28px);font-weight:400;letter-spacing:-0.01em;flex:1}
 .tagline-note{font-size:9.5px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--i45);white-space:nowrap;flex-shrink:0}
-
-/* ── CTA BAND ── */
 .cta-band{background:var(--ink);padding:128px 0;text-align:center}
 .cta-headline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(44px,5.5vw,80px);font-weight:600;letter-spacing:-0.03em;line-height:1.04;color:var(--cream);max-width:680px;margin:0 auto 28px}
 .cta-headline em{font-style:italic;color:var(--gold)}
 .cta-sub{font-size:16px;font-weight:300;color:rgba(246,243,238,0.48);max-width:360px;margin:0 auto 52px;line-height:1.8}
 .cta-actions{display:flex;align-items:center;justify-content:center;gap:14px}
-.btn-light{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:13.5px;font-weight:500;letter-spacing:0.03em;
-  color:var(--ink);background:var(--cream);
-  padding:14px 30px;border-radius:7px;
-  transition:opacity var(--fast);cursor:pointer;
-}
+.btn-light{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;letter-spacing:0.03em;color:var(--ink);background:var(--cream);padding:14px 30px;border-radius:7px;transition:opacity var(--fast);cursor:pointer}
 .btn-light:hover{opacity:0.82}
-.btn-outline-light{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:13.5px;font-weight:400;
-  color:rgba(246,243,238,0.56);
-  padding:14px 22px;border-radius:7px;
-  border:1px solid rgba(246,243,238,0.18);
-  transition:all var(--fast);cursor:pointer;
-}
+.btn-outline-light{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:400;color:rgba(246,243,238,0.56);padding:14px 22px;border-radius:7px;border:1px solid rgba(246,243,238,0.18);transition:all var(--fast);cursor:pointer}
 .btn-outline-light:hover{color:var(--cream);border-color:rgba(246,243,238,0.44)}
-
-/* ── ABOUT ── */
 .about-hero{padding:168px 0 88px;border-bottom:var(--rule)}
 .about-headline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(42px,4.8vw,66px);font-weight:600;letter-spacing:-0.03em;line-height:1.06}
 .about-split{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
@@ -300,8 +166,6 @@ nav{
 .val:hover{background:var(--warm)}
 .val-title{font-size:15px;font-weight:600;letter-spacing:-0.015em;margin-bottom:12px}
 .val-body{font-size:13.5px;font-weight:300;line-height:1.82;color:var(--i70)}
-
-/* ── SERVICES PAGE ── */
 .svcs-hero{padding:168px 0 88px;border-bottom:var(--rule)}
 .svcs-detail{border-top:var(--rule)}
 .svc-row{display:grid;grid-template-columns:1fr 1.7fr;gap:88px;padding:88px 0;border-bottom:var(--rule);align-items:start}
@@ -315,8 +179,6 @@ nav{
 .sd-oc{background:var(--warm);border-radius:8px;padding:20px}
 .sd-oc-lbl{font-size:9.5px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block}
 .sd-oc-val{font-size:13px;font-weight:400;color:var(--ink);line-height:1.45}
-
-/* ── CONTACT ── */
 .contact-hero{padding:168px 0 88px;border-bottom:var(--rule)}
 .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:88px;padding:88px 0}
 .contact-info h3{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-0.025em;margin-bottom:18px}
@@ -327,46 +189,27 @@ nav{
 .cd-value{font-size:15px;font-weight:400;color:var(--ink)}
 .form-group{margin-bottom:22px}
 .form-label{font-size:10.5px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--i70);display:block;margin-bottom:8px}
-.form-input,.form-textarea,.form-select{
-  width:100%;font-family:inherit;font-size:15px;font-weight:300;
-  color:var(--ink);background:var(--warm);
-  border:var(--rule);border-radius:8px;padding:14px 18px;
-  outline:none;transition:border-color var(--fast),background var(--fast);
-  -webkit-appearance:none;
-}
+.form-input,.form-textarea,.form-select{width:100%;font-family:inherit;font-size:15px;font-weight:300;color:var(--ink);background:var(--warm);border:var(--rule);border-radius:8px;padding:14px 18px;outline:none;transition:border-color var(--fast),background var(--fast);-webkit-appearance:none}
 .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--stone);background:var(--cream)}
 .form-textarea{resize:vertical;min-height:136px;line-height:1.7}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.form-submit{
-  width:100%;font-family:inherit;font-size:15px;font-weight:500;letter-spacing:0.03em;
-  color:var(--cream);background:var(--ink);
-  border:none;border-radius:8px;padding:16px;
-  cursor:pointer;transition:opacity var(--fast);
-}
+.form-submit{width:100%;font-family:inherit;font-size:15px;font-weight:500;letter-spacing:0.03em;color:var(--cream);background:var(--ink);border:none;border-radius:8px;padding:16px;cursor:pointer;transition:opacity var(--fast)}
 .form-submit:hover{opacity:0.76}
 .form-note{font-size:11.5px;font-weight:300;color:var(--i45);margin-top:14px;text-align:center}
-
-/* ── FOOTER ── */
-footer{
-  padding:44px 52px;border-top:var(--rule);
-  display:grid;grid-template-columns:1fr auto 1fr;
-  align-items:center;gap:32px;
-}
+footer{padding:44px 52px;border-top:var(--rule);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:32px}
 .footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;cursor:pointer}
 .footer-logo .dot{color:var(--gold)}
 .footer-links{display:flex;align-items:center;gap:28px}
 .footer-link{font-size:13px;font-weight:300;color:var(--i45);transition:color var(--fast);cursor:pointer}
 .footer-link:hover{color:var(--ink)}
 .footer-right{text-align:right;font-size:11.5px;font-weight:300;color:var(--i45)}
-
-/* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .wrap{padding:0 36px}
   nav{padding:0 36px}
   .hero-inner,.hero-bottom{padding-left:36px;padding-right:36px}
   footer{padding:36px}
   .pillars-grid{grid-template-columns:repeat(2,1fr)}
-  .testi-grid,.cases-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:repeat(2,1fr)}
   .eng-grid{grid-template-columns:repeat(2,1fr)}
   .process-grid{grid-template-columns:repeat(3,1fr)}
   .about-split{grid-template-columns:1fr;gap:52px}
@@ -381,7 +224,7 @@ footer{
 @media(max-width:768px){
   .wrap{padding:0 24px}
   nav{padding:0 24px}
-  .hero-inner{padding:44px 24px 52px}
+  .hero-inner{padding:28px 24px 52px}
   .hero-bottom{display:none}
   .section-xl{padding:88px 0}
   .section-lg{padding:72px 0}
@@ -394,7 +237,7 @@ footer{
   .cap-row{grid-template-columns:36px 1fr;gap:18px}
   .cap-row .cap-desc{grid-column:2}
   .cap-row .cap-tags{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
-  .testi-grid,.cases-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
   .eng-grid{grid-template-columns:1fr 1fr}
   .process-grid{grid-template-columns:1fr 1fr}
   .why-grid{grid-template-columns:1fr}
@@ -413,7 +256,6 @@ footer{
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo" onclick="showPage('home')">Rhims<span class="dot">.</span></div>
   <div class="nav-links">
@@ -433,10 +275,9 @@ footer{
   <div class="mob-link" onclick="showPage('contact');toggleMenu()">Contact</div>
 </div>
 
-<!-- ══════════════════════ HOME ══════════════════════ -->
+<!-- HOME -->
 <div class="page active" id="page-home">
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-inner">
@@ -447,7 +288,7 @@ footer{
         The execution<br>layer your<br>brand <em>is missing.</em>
       </h1>
       <div class="hero-divider"></div>
-      <p class="hero-sub">Most founders have the vision. Few have a partner who stays in the work — building the brand, running the operations, and making sure the business keeps moving. That's RHIMS.</p>
+      <p class="hero-sub">Most founders have the vision. Few have a partner who stays in the work, building the brand, running the operations, and making sure the business keeps moving. That's RHIMS.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="showPage('contact')">Start the conversation →</button>
         <button class="btn-ghost" onclick="showPage('services')">See what we do</button>
@@ -464,7 +305,6 @@ footer{
     </div>
   </section>
 
-  <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-track">
       <div class="tick-item">Brand Strategy<span class="tick-dot"></span></div>
@@ -486,7 +326,7 @@ footer{
     </div>
   </div>
 
-  <!-- FOUNDER GAP STATEMENT -->
+  <!-- Rewritten founder gap statement -->
   <section class="gap-section">
     <div class="wrap">
       <div class="gap-inner">
@@ -494,21 +334,19 @@ footer{
           "Most founders don't fail for lack of ideas.<br>They fail for lack of <em>someone to build with.</em>"
         </div>
         <div class="gap-right ao d2">
-          <p>Some founders start strong and lose momentum. Some have a clear vision but no one to operationalise it. Some understand the business but the brand never gets built. Some build the brand but the operations fall apart.</p>
-          <p>RHIMS exists to close every one of those gaps. We're not an agency that hands you a deck and disappears. We're the partner that stays in the work — across brand, marketing, and operations — for as long as you need us.</p>
-          <p>Selective. Accountable. Invested in your outcome.</p>
+          <p>Most brands stall not because the product is weak or the vision is unclear. They stall because no one is holding the work together. The brand, the operations, the momentum — all of it slips when there's no dedicated partner in the room.</p>
+          <p>RHIMS is that partner. We stay embedded across brand, marketing, and operations for as long as you need us. Selective. Accountable. Invested in your outcome.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VALUE PILLARS -->
   <section class="section-xl">
     <div class="wrap">
       <div class="sh ao">
         <div class="eyebrow"><span class="label">Why Rhims</span></div>
         <h2 class="sh-title serif">Not an agency.<br>A co-builder.</h2>
-        <p class="sh-sub">We plug into your business at the level you need — brand, operations, or both — and stay until it's done.</p>
+        <p class="sh-sub">We plug into your business at the level you need and stay until it's done.</p>
       </div>
       <div class="pillars-grid">
         <div class="pillar ao d1">
@@ -519,7 +357,7 @@ footer{
         <div class="pillar ao d2">
           <span class="pillar-num">02</span>
           <div class="pillar-title">We stay in the work</div>
-          <p class="pillar-body">Unlike agencies that hand off and leave, we remain embedded. Execution doesn't stop when the brief is approved — it starts there.</p>
+          <p class="pillar-body">Unlike agencies that hand off and leave, we remain embedded. Execution doesn't stop when the brief is approved. It starts there.</p>
         </div>
         <div class="pillar ao d3">
           <span class="pillar-num">03</span>
@@ -528,25 +366,25 @@ footer{
         </div>
         <div class="pillar ao d4">
           <span class="pillar-num">04</span>
-          <div class="pillar-title">Brand + ops under one roof</div>
+          <div class="pillar-title">Brand and ops under one roof</div>
           <p class="pillar-body">Identity, campaigns, retail, and operational execution. No handoffs between vendors. One partner holds the whole thing from start to scale.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CAPABILITIES -->
+  <!-- 4 capabilities -->
   <section class="section-xl" style="padding-top:0">
     <div class="wrap">
       <div class="sh ao">
         <div class="eyebrow"><span class="label">What we do</span></div>
-        <h2 class="sh-title serif">Seven capabilities.<br>One transformation.</h2>
+        <h2 class="sh-title serif">Four capabilities.<br>One transformation.</h2>
       </div>
       <div class="capabilities-list">
         <div class="cap-row ao d1">
           <span class="cap-num">01</span>
           <div class="cap-name">Brand Identity &amp; Design</div>
-          <p class="cap-desc">The complete visual world of your brand — logo, identity system, packaging, brand assets. Coherent across every touchpoint, built to last.</p>
+          <p class="cap-desc">The complete visual world of your brand. Logo, identity system, packaging, brand assets. Coherent across every touchpoint, built to last.</p>
           <div class="cap-tags"><span class="cap-tag">Identity</span><span class="cap-tag">Packaging</span><span class="cap-tag">Assets</span></div>
         </div>
         <div class="cap-row ao d2">
@@ -557,39 +395,20 @@ footer{
         </div>
         <div class="cap-row ao d3">
           <span class="cap-num">03</span>
-          <div class="cap-name">Integrated Campaigns</div>
-          <p class="cap-desc">Outdoor, experiential, PR, broadcast, and digital. One unified brand moment across every surface, launched with conviction.</p>
-          <div class="cap-tags"><span class="cap-tag">OOH</span><span class="cap-tag">PR</span><span class="cap-tag">Events</span></div>
-        </div>
-        <div class="cap-row ao d4">
-          <span class="cap-num">04</span>
-          <div class="cap-name">Brand Partnerships &amp; Collaborations</div>
-          <p class="cap-desc">Celebrity, talent, and brand alliances that create cultural moments and expand audiences beyond what media spend alone can achieve.</p>
-          <div class="cap-tags"><span class="cap-tag">Celebrity</span><span class="cap-tag">Collabs</span><span class="cap-tag">Talent</span></div>
-        </div>
-        <div class="cap-row ao d5">
-          <span class="cap-num">05</span>
           <div class="cap-name">Retail Channel Partnerships</div>
           <p class="cap-desc">Placement inside major retail chains and beauty destinations. Distribution at scale, negotiated and activated end to end.</p>
           <div class="cap-tags"><span class="cap-tag">Retail</span><span class="cap-tag">Distribution</span><span class="cap-tag">Trade</span></div>
         </div>
-        <div class="cap-row ao d6">
-          <span class="cap-num">06</span>
-          <div class="cap-name">Brand Consulting &amp; Repositioning</div>
-          <p class="cap-desc">Audits, competitive analysis, audience research, and the strategic roadmap that turns a good brand into an inevitable one.</p>
-          <div class="cap-tags"><span class="cap-tag">Audit</span><span class="cap-tag">Positioning</span><span class="cap-tag">Strategy</span></div>
-        </div>
-        <div class="cap-row ao">
-          <span class="cap-num">07</span>
+        <div class="cap-row ao d4">
+          <span class="cap-num">04</span>
           <div class="cap-name">Operations &amp; Execution Support</div>
-          <p class="cap-desc">For founders who have the vision but need someone in the engine room. We plug into your day-to-day — systems, processes, and momentum — so the business keeps moving.</p>
+          <p class="cap-desc">For founders who have the vision but need someone in the engine room. We plug into your day-to-day, build systems, and keep the business moving.</p>
           <div class="cap-tags"><span class="cap-tag">Systems</span><span class="cap-tag">Process</span><span class="cap-tag">Momentum</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section class="process-section section-lg">
     <div class="wrap">
       <div class="sh ao" style="margin-bottom:52px">
@@ -599,7 +418,7 @@ footer{
       </div>
       <div class="process-grid">
         <div class="ps ao d1"><span class="ps-num">01</span><div class="ps-title">Diagnose</div><p class="ps-body">Deep brand and business audit. Competitive landscape. Where the gaps actually are. We don't strategise until we understand completely.</p></div>
-        <div class="ps ao d2"><span class="ps-num">02</span><div class="ps-title">Position</div><p class="ps-body">Messaging architecture. Market positioning. The clear defensible space your brand will own — and the business model to support it.</p></div>
+        <div class="ps ao d2"><span class="ps-num">02</span><div class="ps-title">Position</div><p class="ps-body">Messaging architecture. Market positioning. The clear defensible space your brand will own and the business model to support it.</p></div>
         <div class="ps ao d3"><span class="ps-num">03</span><div class="ps-title">Create</div><p class="ps-body">Identity, campaigns, content, operational systems. Every creative and structural decision is a strategic argument for the brand.</p></div>
         <div class="ps ao d4"><span class="ps-num">04</span><div class="ps-title">Activate</div><p class="ps-body">Precision rollout. Online, offline, retail, and partnerships launched as one cohesive moment. Operations embedded and running.</p></div>
         <div class="ps ao d5"><span class="ps-num">05</span><div class="ps-title">Sustain</div><p class="ps-body">We don't hand off and leave. We iterate, optimise, and stay in the work as the brand grows and the market shifts.</p></div>
@@ -607,7 +426,7 @@ footer{
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- Testimonials only (selected work removed from home) -->
   <section class="testi-section section-lg">
     <div class="wrap">
       <div class="sh center ao">
@@ -630,7 +449,7 @@ footer{
           </div>
         </div>
         <div class="testi-card ao d3">
-          <p class="testi-quote">"Every agency we'd worked with before gave us executions. Rhims gave us a brand — and stayed in the building with us until we got it right. The difference is everything."</p>
+          <p class="testi-quote">"Every agency we'd worked with before gave us executions. Rhims gave us a brand and stayed in the building with us until we got it right. The difference is everything."</p>
           <div class="testi-author">
             <div class="testi-av">TM</div>
             <div><div class="testi-name">Tunde Makinde</div><div class="testi-role">CMO, Primal Skincare</div></div>
@@ -640,55 +459,6 @@ footer{
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
-  <section class="section-lg" style="padding-top:0">
-    <div class="wrap">
-      <div class="sh ao">
-        <div class="eyebrow"><span class="label">Selected work</span></div>
-        <h2 class="sh-title serif">Brands we've built <em>together</em></h2>
-      </div>
-      <div class="cases-grid">
-        <div class="case-card ao d1">
-          <div class="case-img"><span class="case-img-label">Beauty / Cosmetics</span></div>
-          <div class="case-body">
-            <span class="case-industry">Beauty</span>
-            <div class="case-title">Full brand overhaul for an emerging cosmetics line</div>
-            <p class="case-desc">Identity redesign, packaging system, social strategy, and retail distribution secured across 12 locations nationwide.</p>
-            <div class="case-metrics">
-              <div class="case-metric"><strong>3x</strong>Revenue in 8 months</div>
-              <div class="case-metric"><strong>12</strong>New retail placements</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-card ao d2">
-          <div class="case-img"><span class="case-img-label">Fashion / Lifestyle</span></div>
-          <div class="case-body">
-            <span class="case-industry">Fashion</span>
-            <div class="case-title">Repositioning a stalled fashion brand to compete regionally</div>
-            <p class="case-desc">Brand audit, market repositioning, influencer strategy, and a launch campaign that generated national press coverage.</p>
-            <div class="case-metrics">
-              <div class="case-metric"><strong>180k</strong>Campaign impressions</div>
-              <div class="case-metric"><strong>2x</strong>Social following</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-card ao d3">
-          <div class="case-img"><span class="case-img-label">FMCG / Consumer</span></div>
-          <div class="case-body">
-            <span class="case-industry">FMCG</span>
-            <div class="case-title">Taking a consumer goods brand into modern retail</div>
-            <p class="case-desc">Complete packaging redesign, retail channel strategy, and trade marketing execution securing placement in a top-tier supermarket chain.</p>
-            <div class="case-metrics">
-              <div class="case-metric"><strong>1</strong>Major retail chain secured</div>
-              <div class="case-metric"><strong>40%</strong>Sales uplift</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ENGAGEMENT MODELS -->
   <section class="section-lg" style="background:var(--warm)">
     <div class="wrap">
       <div class="sh ao">
@@ -705,7 +475,7 @@ footer{
         <div class="eg ao d2">
           <span class="eg-name">Project</span>
           <span class="eg-label">Defined scope</span>
-          <p class="eg-desc">Fixed outcome. Clear deliverables. For specific transformations — a rebrand, campaign launch, or operational overhaul — with defined scope.</p>
+          <p class="eg-desc">Fixed outcome. Clear deliverables. For specific transformations like a rebrand, campaign launch, or operational overhaul with defined scope.</p>
         </div>
         <div class="eg ao d3">
           <span class="eg-name">Commission</span>
@@ -721,7 +491,6 @@ footer{
     </div>
   </section>
 
-  <!-- TAGLINES -->
   <section class="section-lg" style="padding-bottom:0;border-top:var(--rule)">
     <div class="wrap">
       <div class="eyebrow ao" style="margin-bottom:44px"><span class="label">Our positioning</span></div>
@@ -734,7 +503,6 @@ footer{
     </div>
   </section>
 
-  <!-- CTA -->
   <div class="cta-band">
     <div class="wrap">
       <h2 class="cta-headline ao">Ready to build something <em>worth remembering?</em></h2>
@@ -746,13 +514,13 @@ footer{
     </div>
   </div>
 
-</div><!-- /home -->
+</div>
 
-<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<!-- ABOUT -->
 <div class="page" id="page-about">
   <section class="about-hero">
     <div class="wrap">
-      <div class="eyebrow ao"><span class="label">About Rhims Co.</span></div>
+      <div class="eyebrow ao"><span class="label">About Rhims</span></div>
       <h1 class="about-headline ao d1">We are the partner<br><span class="serif-i">founders build with.</span></h1>
     </div>
   </section>
@@ -763,13 +531,13 @@ footer{
         <div class="ao">
           <h2 class="sh-title serif" style="margin-bottom:0">Built on strategy.<br>Driven by outcomes.</h2>
           <div class="stat-trio">
-            <div><span class="stat-big">360°</span><span class="stat-label">Brand &amp; ops capability</span></div>
-            <div><span class="stat-big">7</span><span class="stat-label">Strategic capabilities</span></div>
+            <div><span class="stat-big">360°</span><span class="stat-label">Brand and ops capability</span></div>
+            <div><span class="stat-big">4</span><span class="stat-label">Strategic capabilities</span></div>
             <div><span class="stat-big">2022</span><span class="stat-label">Founded</span></div>
           </div>
         </div>
         <div class="about-body ao d2">
-          <p>RHIMS was founded on a single observation: most founders in Africa are building alone. The vision is there. The drive is real. But somewhere between the idea and the execution, momentum stalls — because there's no one in the room who can hold the brand and the business at the same time.</p>
+          <p>RHIMS was founded on a single observation: most founders in Africa are building alone. The vision is there. The drive is real. But somewhere between the idea and the execution, momentum stalls because there is no one in the room who can hold the brand and the business at the same time.</p>
           <p>We exist to be that person. RHIMS is a full-service brand strategy, creative, and operations partner for consumer brands in beauty, fashion, lifestyle, and FMCG. We bring the rigour of a global consultancy, the creative conviction of a world-class studio, and the operational depth of a true co-founder.</p>
           <p>We don't measure success by outputs. We measure it by what changes for your brand and your business in the market. That means we're selective about who we work with, accountable for every decision we make, and committed for the long arc — not just the launch moment.</p>
         </div>
@@ -781,17 +549,16 @@ footer{
     <div class="wrap" style="padding-top:80px;padding-bottom:80px">
       <div class="sh center ao"><h2 class="sh-title serif">What we stand <em>for</em></h2></div>
       <div class="vals-grid">
-        <div class="val ao d1"><div class="val-title">Founders first</div><p class="val-body">Everything we do is designed around the founder's reality — not the agency's convenience. We work inside your constraints and alongside your ambition.</p></div>
+        <div class="val ao d1"><div class="val-title">Founders first</div><p class="val-body">Everything we do is designed around the founder's reality, not the agency's convenience. We work inside your constraints and alongside your ambition.</p></div>
         <div class="val ao d2"><div class="val-title">Clarity over noise</div><p class="val-body">We remove ambiguity from brand and business building. Clear strategy. Clear identity. Clear operations. Nothing vague, nothing generic.</p></div>
         <div class="val ao d3"><div class="val-title">Accountability</div><p class="val-body">We make strategic commitments and stand behind them. Our recommendations are defensible, our execution is trackable, and our results are measurable.</p></div>
         <div class="val ao d4"><div class="val-title">Cultural intelligence</div><p class="val-body">We understand the African market at depth. We bring that intelligence to every brand we touch, building brands that resonate locally and compete globally.</p></div>
-        <div class="val ao d5"><div class="val-title">Execution, always</div><p class="val-body">Ideas without execution are worthless. We are rigorous in both. The work doesn't stop at the strategy deck — it starts there.</p></div>
+        <div class="val ao d5"><div class="val-title">Execution, always</div><p class="val-body">Ideas without execution are worthless. We are rigorous in both. The work doesn't stop at the strategy deck. It starts there.</p></div>
         <div class="val ao d6"><div class="val-title">World-class benchmark</div><p class="val-body">We hold ourselves and our clients to a global standard. Not what's acceptable locally. What's competitive globally. Because your customers already think that way.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- WHY RHIMS -->
   <section class="section-lg">
     <div class="wrap">
       <div class="sh ao">
@@ -802,7 +569,7 @@ footer{
         <div class="why-card ao d1">
           <span class="why-num">01</span>
           <div class="why-title">We are co-builders, not vendors</div>
-          <p class="why-body">Most agencies complete a project and leave. We stay embedded — in the brand, in the operations, in the decisions — for as long as you need us. That's a fundamentally different relationship.</p>
+          <p class="why-body">Most agencies complete a project and leave. We stay embedded in the brand, in the operations, in the decisions for as long as you need us. That's a fundamentally different relationship.</p>
         </div>
         <div class="why-card ao d2">
           <span class="why-num">02</span>
@@ -811,7 +578,7 @@ footer{
         </div>
         <div class="why-card ao d3">
           <span class="why-num">03</span>
-          <div class="why-title">Brand + operations, one team</div>
+          <div class="why-title">Brand and operations, one team</div>
           <p class="why-body">Most founders have to stitch together a brand agency, a marketing team, and an ops consultant. RHIMS replaces all three. One team. No handoffs. No diluted vision.</p>
         </div>
         <div class="why-card ao d4">
@@ -833,15 +600,15 @@ footer{
       </div>
     </div>
   </div>
-</div><!-- /about -->
+</div>
 
-<!-- ══════════════════════ SERVICES ══════════════════════ -->
+<!-- SERVICES -->
 <div class="page" id="page-services">
   <section class="svcs-hero">
     <div class="wrap">
       <div class="eyebrow ao"><span class="label">Strategic Capabilities</span></div>
       <h1 class="sh-title serif ao d1" style="font-size:clamp(46px,5.2vw,76px);max-width:680px;margin-top:18px">Not services.<br><em>Capabilities.</em></h1>
-      <p class="sh-sub ao d2" style="max-width:500px;margin-top:26px">Each capability is a lever — deployed with precision, calibrated to your brand's specific moment, market, and ambition. Some clients need one. Some need all seven.</p>
+      <p class="sh-sub ao d2" style="max-width:500px;margin-top:26px">Each capability is a lever deployed with precision, calibrated to your brand's specific moment, market, and ambition. Some clients need one. Some need all four.</p>
     </div>
   </section>
 
@@ -885,40 +652,6 @@ footer{
       <div class="svc-row ao">
         <div>
           <span class="sd-num">03</span>
-          <div class="sd-name">Integrated Campaigns</div>
-          <div class="sd-tags"><span class="sd-tag">OOH</span><span class="sd-tag">Experiential</span><span class="sd-tag">PR</span><span class="sd-tag">Broadcast</span></div>
-        </div>
-        <div class="sd-right">
-          <p>The most powerful brand moments happen when every channel speaks with one voice, at the same time. We design campaigns that move across outdoor, digital, experiential, broadcast, and PR. One unified brand moment that is impossible to ignore.</p>
-          <p>Whether it's a product launch, a brand repositioning, or a seasonal push, we orchestrate the full campaign from concept through activation.</p>
-          <div class="sd-outcomes">
-            <div class="sd-oc"><span class="sd-oc-lbl">You get</span><span class="sd-oc-val">A fully integrated campaign across all relevant surfaces</span></div>
-            <div class="sd-oc"><span class="sd-oc-lbl">The outcome</span><span class="sd-oc-val">Mass awareness and measurable brand lift</span></div>
-            <div class="sd-oc"><span class="sd-oc-lbl">Engagement</span><span class="sd-oc-val">Project-based</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="svc-row ao">
-        <div>
-          <span class="sd-num">04</span>
-          <div class="sd-name">Brand Partnerships &amp; Collaborations</div>
-          <div class="sd-tags"><span class="sd-tag">Celebrity</span><span class="sd-tag">Brand Deals</span><span class="sd-tag">Talent</span></div>
-        </div>
-        <div class="sd-right">
-          <p>The right collaboration can do in one moment what years of advertising cannot. We identify, pitch, and manage high-leverage alliances with talent, celebrities, and complementary brands that create genuine cultural moments and expand your audience.</p>
-          <p>From negotiation through execution, we manage the relationship so your team can focus on what matters. Every deal is structured to protect your brand and maximise the strategic value of the collaboration.</p>
-          <div class="sd-outcomes">
-            <div class="sd-oc"><span class="sd-oc-lbl">You get</span><span class="sd-oc-val">Fully brokered and managed brand partnerships</span></div>
-            <div class="sd-oc"><span class="sd-oc-lbl">The outcome</span><span class="sd-oc-val">New audiences, cultural relevance, brand elevation</span></div>
-            <div class="sd-oc"><span class="sd-oc-lbl">Engagement</span><span class="sd-oc-val">Commission or project-based</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="svc-row ao">
-        <div>
-          <span class="sd-num">05</span>
           <div class="sd-name">Retail Channel Partnerships</div>
           <div class="sd-tags"><span class="sd-tag">Retail Access</span><span class="sd-tag">Distribution</span><span class="sd-tag">Trade Marketing</span></div>
         </div>
@@ -935,24 +668,7 @@ footer{
 
       <div class="svc-row ao">
         <div>
-          <span class="sd-num">06</span>
-          <div class="sd-name">Brand Consulting &amp; Repositioning</div>
-          <div class="sd-tags"><span class="sd-tag">Brand Audit</span><span class="sd-tag">Positioning</span><span class="sd-tag">Research</span><span class="sd-tag">Roadmap</span></div>
-        </div>
-        <div class="sd-right">
-          <p>Before any execution can be meaningful, the strategy must be right. This is where we start with every client. A thorough brand audit, competitive landscape analysis, audience research, and market positioning that identifies the clear defensible space your brand can own.</p>
-          <p>The output is a strategic roadmap — a document that answers the most important questions: who you are, who you're for, why you win, and exactly how to get there.</p>
-          <div class="sd-outcomes">
-            <div class="sd-oc"><span class="sd-oc-lbl">You get</span><span class="sd-oc-val">A complete brand strategy document and roadmap</span></div>
-            <div class="sd-oc"><span class="sd-oc-lbl">The outcome</span><span class="sd-oc-val">Clarity, direction, and a defensible market position</span></div>
-            <div class="sd-oc"><span class="sd-oc-lbl">Timeline</span><span class="sd-oc-val">3 to 6 weeks</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="svc-row ao">
-        <div>
-          <span class="sd-num">07</span>
+          <span class="sd-num">04</span>
           <div class="sd-name">Operations &amp; Execution Support</div>
           <div class="sd-tags"><span class="sd-tag">Business Systems</span><span class="sd-tag">Process Design</span><span class="sd-tag">Momentum</span><span class="sd-tag">Founder Support</span></div>
         </div>
@@ -979,9 +695,9 @@ footer{
       </div>
     </div>
   </div>
-</div><!-- /services -->
+</div>
 
-<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<!-- CONTACT -->
 <div class="page" id="page-contact">
   <section class="contact-hero">
     <div class="wrap">
@@ -1001,7 +717,7 @@ footer{
             <div class="cd-item"><span class="cd-label">Email</span><span class="cd-value">hello@rhims.xyz</span></div>
             <div class="cd-item"><span class="cd-label">Website</span><span class="cd-value">rhims.xyz</span></div>
             <div class="cd-item"><span class="cd-label">Response time</span><span class="cd-value">Within 24 hours</span></div>
-            <div class="cd-item"><span class="cd-label">Availability</span><span class="cd-value">New projects, Q3 2025</span></div>
+            <div class="cd-item"><span class="cd-label">Availability</span><span class="cd-value">Now accepting new clients</span></div>
           </div>
         </div>
 
@@ -1030,12 +746,9 @@ footer{
               <option value="" disabled selected>Select an area</option>
               <option>Brand Identity &amp; Design</option>
               <option>Digital &amp; Social Strategy</option>
-              <option>Integrated Campaign</option>
-              <option>Brand Partnership / Collab</option>
               <option>Retail Channel Partnership</option>
-              <option>Brand Consulting &amp; Repositioning</option>
               <option>Operations &amp; Execution Support</option>
-              <option>Full brand + business transformation</option>
+              <option>Full brand and business transformation</option>
               <option>Not sure yet — I need a conversation</option>
             </select>
           </div>
@@ -1049,9 +762,8 @@ footer{
       </div>
     </div>
   </section>
-</div><!-- /contact -->
+</div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo" onclick="showPage('home')">Rhims<span class="dot">.</span></div>
   <div class="footer-links">
@@ -1062,7 +774,7 @@ footer{
   </div>
   <div class="footer-right">
     <div style="margin-bottom:4px">rhims.xyz</div>
-    <div>© 2025 Rhims Co. All rights reserved.</div>
+    <div>© 2025 Rhims. All rights reserved.</div>
   </div>
 </footer>
 
@@ -1080,18 +792,15 @@ function showPage(id, btn) {
   window.scrollTo({ top: 0, behavior: 'instant' });
   setTimeout(observeAll, 80);
 }
-
 function toggleMenu() {
   document.getElementById('mobile-menu').classList.toggle('open');
 }
-
 function observeAll() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
   document.querySelectorAll('.ao:not(.vis)').forEach(el => obs.observe(el));
 }
-
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.form-submit');
@@ -1099,7 +808,6 @@ function handleSubmit(e) {
   btn.style.background = 'var(--stone)';
   btn.disabled = true;
 }
-
 document.addEventListener('DOMContentLoaded', observeAll);
 observeAll();
 </script>
